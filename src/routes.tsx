@@ -18,7 +18,7 @@ import {
   MdPerson,
   MdLock,
 } from "react-icons/md";
-import Categories from "layouts/categories";
+import Categories from "views/admin/categories";
 
 const routes = [
   {
