@@ -3,6 +3,13 @@ import Project from "views/admin/profile/components/Project";
 import image1 from "assets/img/profile/image1.png";
 import image2 from "assets/img/profile/image2.png";
 import image3 from "assets/img/profile/image3.png";
+import {
+  IoBagRemove,
+  IoHeart,
+  IoHeartOutline,
+  IoRemove,
+  IoTrash,
+} from "react-icons/io5";
 
 export default function Categories() {
   return (
@@ -24,21 +31,39 @@ export default function Categories() {
           </div>
           <div className="ml-4">
             <p className="text-base font-medium text-navy-700 dark:text-white">
-              Technology behind the Blockchain
+              Groceries
             </p>
             <p className="mt-2 text-sm text-gray-600">
-              Project #1 .
-              <a
+              Groceries are the food and household supplies, ranging from
+              produce and dairy to cleaning items. They represent staple items
+              intended for daily household use. Common examples include bread,
+              milk, vegetables, and canned goods.
+              {/* <a
                 className="ml-1 font-medium text-brand-500 hover:text-brand-500 dark:text-white"
                 href=" "
               >
                 See product details
-              </a>
+              </a> */}
             </p>
           </div>
         </div>
-        <div className="mr-4 flex items-center justify-center text-gray-600 dark:text-white">
-          <MdModeEditOutline />
+        <div className="mr-4 flex items-center justify-center gap-3 text-gray-600 dark:text-white">
+          <button
+            // onClick={() => setHeart(!heart)}
+            className="right-3 top-3 flex items-center justify-center rounded-md bg-white p-2 text-gray-600 hover:cursor-pointer hover:bg-gray-100"
+          >
+            <div className="flex h-full w-full items-center justify-center rounded-md text-xl dark:text-navy-900">
+              <IoTrash />
+            </div>
+          </button>
+          <button
+            // onClick={() => setHeart(!heart)}
+            className="right-3 top-3 flex items-center justify-center rounded-md bg-white p-2 text-gray-600 hover:cursor-pointer hover:bg-gray-100"
+          >
+            <div className="flex h-full w-full items-center justify-center rounded-md text-xl dark:text-navy-900">
+              <MdModeEditOutline />
+            </div>
+          </button>
         </div>
       </div>
       {/* Project 1 */}
