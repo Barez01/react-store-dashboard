@@ -65,9 +65,9 @@ const routes = [
     component: <RTLDefault />,
   },
   {
-    name: "Settings",
+    name: "Categories",
     layout: "/admin",
-    path: "settings",
+    path: "categories",
     icon: <MdHome className="h-6 w-6" />,
     component: <Categories/>,
   },
