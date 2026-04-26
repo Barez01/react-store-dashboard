@@ -18,6 +18,7 @@ import {
   MdPerson,
   MdLock,
 } from "react-icons/md";
+import Categories from "layouts/categories";
 
 const routes = [
   {
@@ -62,6 +63,13 @@ const routes = [
     path: "rtl",
     icon: <MdHome className="h-6 w-6" />,
     component: <RTLDefault />,
+  },
+  {
+    name: "Settings",
+    layout: "/admin",
+    path: "settings",
+    icon: <MdHome className="h-6 w-6" />,
+    component: <Categories/>,
   },
 ];
 export default routes;
