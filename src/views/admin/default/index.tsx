@@ -24,31 +24,37 @@ const Dashboard = () => {
           icon={<MdBarChart className="h-7 w-7" />}
           title={"Categories"}
           subtitle={"20"}
+          path="profile"
         />
         <Widget
           icon={<IoDocuments className="h-6 w-6" />}
           title={"Products"}
           subtitle={"180"}
+          path="data-tables"
         />
         <Widget
           icon={<MdBarChart className="h-7 w-7" />}
           title={"Sales"}
           subtitle={"10"}
+          path="nft-marketplace"
         />
         <Widget
           icon={<MdDashboard className="h-6 w-6" />}
           title={"Your Balance"}
           subtitle={"$1,000"}
+          path="nft-marketplace"
         />
         <Widget
           icon={<MdBarChart className="h-7 w-7" />}
           title={"New Tasks"}
           subtitle={"145"}
+          path="nft-marketplace"
         />
         <Widget
           icon={<IoMdHome className="h-6 w-6" />}
           title={"Total Projects"}
           subtitle={"$2433"}
+          path="nft-marketplace"
         />
       </div>
 
