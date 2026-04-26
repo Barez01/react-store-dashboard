@@ -14,14 +14,19 @@ import {
 export default function Categories() {
   return (
     <div className="m-8">
-      <div className="mb-8 w-full pl-8">
-        <h4 className="text-xl font-bold text-navy-700 dark:text-white">
-          All Categories
-        </h4>
-        <p className="mt-2 text-base text-gray-600">
-          Here you can find all the provided categoires. you can edit, delete,
-          view and add more category.
-        </p>
+      <div className="mb-8 flex w-full items-center justify-between">
+        <div>
+          <h4 className="text-xl font-bold text-navy-700 dark:text-white">
+            All Categories
+          </h4>
+          <p className="mt-2 text-base text-gray-600">
+            Here you can find all the provided categoires. you can edit, delete,
+            view and add more category.
+          </p>
+        </div>
+        <button className="dark:active-bg-white-20 linear rounded-md bg-gray-100 px-4 py-2 text-base font-medium text-brand-500 transition duration-200 hover:bg-brand-500 hover:text-white active:bg-gray-200 dark:bg-white/5 dark:text-white dark:hover:bg-white/10">
+          Add Category
+        </button>
       </div>
       {/* Project 1 */}
       <div className="flex w-full items-center justify-between rounded-2xl bg-white p-3 shadow-3xl shadow-shadow-500 dark:!bg-navy-700 dark:shadow-none">
