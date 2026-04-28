@@ -53,7 +53,7 @@ const Dashboard = () => {
           subtitle={"$10"}
           path="nft-marketplace"
         />
-        <div className="relative flex h-[92px] w-[555px] flex-grow items-center justify-around gap-2 rounded-[20px] px-2 py-2 border-[1px] border-gray-200 bg-white bg-clip-border shadow-md shadow-[#F3F3F3] dark:border-[#ffffff33] dark:text-white dark:!bg-navy-800 dark:shadow-none md:w-[1000px] md:flex-grow-0 md:gap-1 xl:w-[900px] xl:gap-2">
+        <div className="relative flex h-[92px] w-[555px] flex-grow items-center justify-around gap-2 rounded-[20px] border-[1px] border-gray-200 bg-white bg-clip-border px-2 py-2 shadow-md shadow-[#F3F3F3] dark:border-[#ffffff33] dark:!bg-navy-800 dark:text-white dark:shadow-none md:w-[1000px] md:flex-grow-0 md:gap-1 xl:w-[900px] xl:gap-2">
           <div className="flex h-full items-center rounded-[15px] bg-lightPrimary text-navy-700 dark:bg-navy-900 dark:text-white xl:w-[225px]">
             <p className="pl-3 pr-2 text-xl">
               <FiSearch className="h-4 w-4 text-gray-400 dark:text-white" />
@@ -248,37 +248,14 @@ const Dashboard = () => {
 
       {/* Charts */}
 
-      <div className="mt-5 grid grid-cols-1 gap-5 md:grid-cols-2">
-        <TotalSpent />
-        <WeeklyRevenue />
-      </div>
-
-      {/* Tables & Charts */}
-
       <div className="mt-5 grid grid-cols-1 gap-5 xl:grid-cols-2">
-        {/* Check Table */}
-        <div>
-          <CheckTable tableData={tableDataCheck} />
+        <div className="h-full">
+          <TotalSpent />
         </div>
-
-        {/* Traffic chart & Pie Chart */}
 
         <div className="grid grid-cols-1 gap-5 rounded-[20px] md:grid-cols-2">
           <DailyTraffic />
           <PieChartCard />
-        </div>
-
-        {/* Complex Table , Task & Calendar */}
-
-        <ComplexTable tableData={tableDataComplex} />
-
-        {/* Task chart & Calendar */}
-
-        <div className="grid grid-cols-1 gap-5 rounded-[20px] md:grid-cols-2">
-          <TaskCard />
-          <div className="grid grid-cols-1 rounded-[20px]">
-            <MiniCalendar />
-          </div>
         </div>
       </div>
     </div>
