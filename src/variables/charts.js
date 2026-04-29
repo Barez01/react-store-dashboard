@@ -279,6 +279,7 @@ export const lineChartOptionsTotalSpent = {
   },
   chart: {
     type: "line",
+    background: "transparent",
 
     toolbar: {
       show: false,
