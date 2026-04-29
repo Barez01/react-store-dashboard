@@ -3,16 +3,18 @@ const General = () => {
   return (
     <Card extra={"w-full h-full p-3"}>
       {/* Header */}
-      <div className="mt-2 mb-8 w-full">
+      <div className="mb-8 mt-2 w-full">
         <h4 className="px-2 text-xl font-bold text-navy-700 dark:text-white">
-          General Information
+          Low Stock Products
         </h4>
         <p className="mt-2 px-2 text-base text-gray-600">
-          As we live, our hearts turn colder. Cause pain is what we go through
-          as we become older. We get insulted by others, lose trust for those
-          others. We get back stabbed by friends. It becomes harder for us to
-          give others a hand. We get our heart broken by people we love, even
-          that we give them all...
+          The products with the lowest stock levels are highlighted to help you
+          quickly identify items that need attention. This list is sorted in
+          ascending order, starting from the lowest stock to the highest,
+          allowing you to prioritize restocking efficiently. By keeping track of
+          these products, you can ensure timely replenishment and avoid running
+          out of stock, helping maintain smooth operations and better inventory
+          management.
         </p>
       </div>
       {/* Cards */}
