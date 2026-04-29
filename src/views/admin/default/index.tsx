@@ -32,6 +32,7 @@ import { useAppDispatch, useAppSelector } from "../../../Redux/Hooks";
 import { useEffect } from "react";
 import { getOverview } from "layouts/admin/redux/HomeRedux";
 import ProfileNavBar from "./components/ProfileNavBar";
+import General from "../profile/components/General";
 
 const Dashboard = () => {
   const dispatch = useAppDispatch();
@@ -60,7 +61,7 @@ const Dashboard = () => {
           icon={<MdApps className="h-6 w-6" />}
           title={"Products"}
           subtitle={`${overview.totalProducts} items`}
-          path="data-tables"
+          path="profile"
         />
         <Widget
           icon={<MdBarChart className="h-7 w-7" />}
@@ -93,7 +94,7 @@ const Dashboard = () => {
 
       {/* Charts */}
 
-      <div className="mt-5 grid grid-cols-1 gap-5 xl:grid-cols-2">
+      <div className="mb-5 mt-5 grid grid-cols-1 gap-5 xl:grid-cols-2">
         <div className="h-full">
           <TotalSpent />
         </div>
@@ -103,6 +104,7 @@ const Dashboard = () => {
           <PieChartCard />
         </div>
       </div>
+      <General />
     </div>
   );
 };

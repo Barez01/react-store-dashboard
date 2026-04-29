@@ -24,7 +24,7 @@ export default function Categories() {
             view and add more category.
           </p>
         </div>
-        <button className="dark:active-bg-white-20 linear rounded-md bg-gray-100 px-4 py-2 text-base font-medium text-brand-500 transition duration-200 hover:bg-brand-500 hover:text-white active:bg-gray-200 dark:bg-white/5 dark:text-white dark:hover:bg-white/10">
+        <button className="dark:active-bg-white-20 linear rounded-md bg-gray-100 px-4 py-2 text-base font-medium text-brand-500 transition duration-200 hover:bg-brand-500 hover:text-white active:bg-gray-200 dark:bg-white/5 dark:text-white dark:hover:bg-brand-500">
           Add Category
         </button>
       </div>
