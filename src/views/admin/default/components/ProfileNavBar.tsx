@@ -8,11 +8,20 @@ import {
 import { RiSunFill, RiMoonFill } from "react-icons/ri";
 import avatar from "assets/img/avatars/avatar4.png";
 import React from "react";
+import {
+  MdDarkMode,
+  MdLanguage,
+  MdLightMode,
+  MdLogout,
+  MdOutlineDarkMode,
+  MdOutlineLanguage,
+  MdOutlineLightMode,
+} from "react-icons/md";
 
 export default function ProfileNavBar() {
   const [darkmode, setDarkmode] = React.useState(false);
   return (
-    <div className="relative col-span-1 flex h-[92px] w-full flex-grow items-center justify-around gap-2 rounded-[20px] border-[1px] border-gray-200 bg-white bg-clip-border px-2 py-2 shadow-md shadow-[#F3F3F3] dark:border-[#ffffff33] dark:!bg-navy-800 dark:text-white dark:shadow-none md:col-span-2 md:flex-grow-0 md:gap-1 lg:col-span-3 xl:gap-2 3xl:col-span-3">
+    <div className="relative col-span-1 flex h-[92px] w-full flex-grow items-center justify-between gap-2 rounded-[20px] border-[1px] border-gray-200 bg-white bg-clip-border px-2 py-2 pl-6 pr-6 shadow-md shadow-[#F3F3F3] dark:border-[#ffffff33] dark:!bg-navy-800 dark:text-white dark:shadow-none md:col-span-2 md:flex-grow-0 md:gap-1 lg:col-span-3 xl:gap-2 3xl:col-span-3">
       {/* <div className="flex h-full items-center rounded-[15px] bg-lightPrimary text-navy-700 dark:bg-navy-900 dark:text-white xl:w-[225px]">
             <p className="pl-3 pr-2 text-xl">
               <FiSearch className="h-4 w-4 text-gray-400 dark:text-white" />
@@ -39,7 +48,7 @@ export default function ProfileNavBar() {
               alt="Elon Musk"
             />
             <div className="flex flex-col justify-center leading-none">
-              <h6 className="text-[16px] font-bold mb-1">Barez Azad</h6>
+              <h6 className="mb-1 text-[16px] font-bold">Barez Azad</h6>
               <p className="text-[14px] text-gray-400">Cashier</p>
             </div>
           </div>
@@ -79,116 +88,51 @@ export default function ProfileNavBar() {
         }
         classNames={"py-2 top-8 -left-[180px] w-max"}
       />
-      {/* start Notification */}
-      <Dropdown
-        button={
-          <p className="cursor-pointer">
-            <IoMdNotificationsOutline className="h-4 w-4 text-gray-600 dark:text-white" />
-          </p>
-        }
-        animation="origin-[65%_0%] md:origin-top-right transition-all duration-300 ease-in-out"
-        children={
-          <div className="flex w-[360px] flex-col gap-3 rounded-[20px] bg-white p-4 shadow-xl shadow-shadow-500 dark:!bg-navy-700 dark:text-white dark:shadow-none sm:w-[460px]">
-            <div className="flex items-center justify-between">
-              <p className="text-base font-bold text-navy-700 dark:text-white">
-                Notification
-              </p>
-              <p className="text-sm font-bold text-navy-700 dark:text-white">
-                Mark all read
-              </p>
-            </div>
-
-            <button className="flex w-full items-center">
-              <div className="flex h-full w-[85px] items-center justify-center rounded-xl bg-gradient-to-b from-brandLinear to-brand-500 py-4 text-2xl text-white">
-                <BsArrowBarUp />
-              </div>
-              <div className="ml-2 flex h-full w-full flex-col justify-center rounded-lg px-1 text-sm">
-                <p className="mb-1 text-left text-base font-bold text-gray-900 dark:text-white">
-                  New Update: Horizon UI Dashboard PRO
-                </p>
-                <p className="font-base text-left text-xs text-gray-900 dark:text-white">
-                  A new update for your downloaded item is available!
-                </p>
-              </div>
-            </button>
-
-            <button className="flex w-full items-center">
-              <div className="flex h-full w-[85px] items-center justify-center rounded-xl bg-gradient-to-b from-brandLinear to-brand-500 py-4 text-2xl text-white">
-                <BsArrowBarUp />
-              </div>
-              <div className="ml-2 flex h-full w-full flex-col justify-center rounded-lg px-1 text-sm">
-                <p className="mb-1 text-left text-base font-bold text-gray-900 dark:text-white">
-                  New Update: Horizon UI Dashboard PRO
-                </p>
-                <p className="font-base text-left text-xs text-gray-900 dark:text-white">
-                  A new update for your downloaded item is available!
-                </p>
-              </div>
-            </button>
+      <div className="flex gap-8">
+        <button
+          // onClick={() => setHeart(!heart)}
+          className="right-3 top-3 flex items-center justify-center rounded-md p-2 text-gray-600 hover:cursor-pointer hover:bg-gray-100 dark:hover:bg-white/20"
+        >
+          <div className="flex h-full w-full items-center justify-center rounded-md text-xl dark:text-navy-900">
+            {darkmode ? (
+              <MdOutlineLanguage className="h-4 w-4 text-gray-600 dark:text-white" />
+            ) : (
+              <MdLanguage className="h-4 w-4 text-gray-600 dark:text-white" />
+            )}
           </div>
-        }
-        classNames={"py-2 top-4 -left-[230px] md:-left-[440px] w-max"}
-      />
-      {/* start Horizon PRO */}
-      <Dropdown
-        button={
-          <p className="cursor-pointer">
-            <IoMdInformationCircleOutline className="h-4 w-4 text-gray-600 dark:text-white" />
-          </p>
-        }
-        children={
-          <div className="flex w-[350px] flex-col gap-2 rounded-[20px] bg-white p-4 shadow-xl shadow-shadow-500 dark:!bg-navy-700 dark:text-white dark:shadow-none">
-            <div
-              style={{
-                // backgroundImage: `url(${navbarimage})`,
-                backgroundRepeat: "no-repeat",
-                backgroundSize: "cover",
-              }}
-              className="mb-2 aspect-video w-full rounded-lg"
-            />
-            <a
-              target="blank"
-              href="https://horizon-ui.com/pro?ref=live-free-tailwind-react"
-              className="px-full linear flex cursor-pointer items-center justify-center rounded-xl bg-brand-500 py-[11px] font-bold text-white transition duration-200 hover:bg-brand-600 hover:text-white active:bg-brand-700 dark:bg-brand-400 dark:hover:bg-brand-300 dark:active:bg-brand-200"
-            >
-              Buy Horizon UI PRO
-            </a>
-            <a
-              target="blank"
-              href="https://horizon-ui.com/docs-tailwind/docs/react/installation?ref=live-free-tailwind-react"
-              className="px-full linear flex cursor-pointer items-center justify-center rounded-xl border py-[11px] font-bold text-navy-700 transition duration-200 hover:bg-gray-200 hover:text-navy-700 dark:!border-white/10 dark:text-white dark:hover:bg-white/20 dark:hover:text-white dark:active:bg-white/10"
-            >
-              See Documentation
-            </a>
-            <a
-              target="blank"
-              href="https://horizon-ui.com/?ref=live-free-tailwind-react"
-              className="hover:bg-black px-full linear flex cursor-pointer items-center justify-center rounded-xl py-[11px] font-bold text-navy-700 transition duration-200 hover:text-navy-700 dark:text-white dark:hover:text-white"
-            >
-              Try Horizon Free
-            </a>
+        </button>
+        <button
+          onClick={() => {
+            if (darkmode) {
+              document.body.classList.remove("dark");
+              setDarkmode(false);
+            } else {
+              document.body.classList.add("dark");
+              setDarkmode(true);
+            }
+          }}
+          className="right-3 top-3 flex items-center justify-center rounded-md p-2 text-gray-600 hover:cursor-pointer hover:bg-gray-100 dark:hover:bg-white/20"
+        >
+          <div className="flex h-full w-full items-center justify-center rounded-md text-xl dark:text-navy-900">
+            {darkmode ? (
+              <MdOutlineLightMode className="h-4 w-4 text-gray-600 dark:text-white" />
+            ) : (
+              <MdOutlineDarkMode className="h-4 w-4 text-gray-600 dark:text-white" />
+            )}
           </div>
-        }
-        classNames={"py-2 top-6 -left-[250px] md:-left-[330px] w-max"}
-        animation="origin-[75%_0%] md:origin-top-right transition-all duration-300 ease-in-out"
-      />
-      <div
-        className="cursor-pointer text-gray-600"
-        onClick={() => {
-          if (darkmode) {
-            document.body.classList.remove("dark");
-            setDarkmode(false);
-          } else {
-            document.body.classList.add("dark");
-            setDarkmode(true);
-          }
-        }}
-      >
-        {darkmode ? (
-          <RiSunFill className="h-4 w-4 text-gray-600 dark:text-white" />
-        ) : (
-          <RiMoonFill className="h-4 w-4 text-gray-600 dark:text-white" />
-        )}
+        </button>
+        <button
+          // onClick={() => setHeart(!heart)}
+          className="right-3 top-3 flex items-center justify-center rounded-md p-2 text-gray-600 hover:cursor-pointer hover:bg-gray-100 dark:hover:bg-white/20"
+        >
+          <div className="flex h-full w-full items-center justify-center rounded-md text-xl dark:text-navy-900">
+            {darkmode ? (
+              <MdLogout className="h-4 w-4 text-gray-600 dark:text-white" />
+            ) : (
+              <MdLogout className="h-4 w-4 text-gray-600 dark:text-white" />
+            )}
+          </div>
+        </button>
       </div>
     </div>
   );

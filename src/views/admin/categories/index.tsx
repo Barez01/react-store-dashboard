@@ -55,17 +55,17 @@ export default function Categories() {
         <div className="mr-4 flex items-center justify-center gap-3 text-gray-600 dark:text-white">
           <button
             // onClick={() => setHeart(!heart)}
-            className="right-3 top-3 flex items-center justify-center rounded-md bg-white p-2 text-gray-600 hover:cursor-pointer hover:bg-gray-100"
+            className="right-3 top-3 flex items-center justify-center rounded-md p-2 text-gray-600 hover:cursor-pointer hover:bg-gray-100 dark:hover:bg-white/20"
           >
-            <div className="flex h-full w-full items-center justify-center rounded-md text-xl dark:text-navy-900">
+            <div className="flex h-full w-full items-center justify-center rounded-md text-xl">
               <IoTrash />
             </div>
           </button>
           <button
             // onClick={() => setHeart(!heart)}
-            className="right-3 top-3 flex items-center justify-center rounded-md bg-white p-2 text-gray-600 hover:cursor-pointer hover:bg-gray-100"
+            className="right-3 top-3 flex items-center justify-center rounded-md p-2 text-gray-600 hover:cursor-pointer hover:bg-gray-100 dark:hover:bg-white/20"
           >
-            <div className="flex h-full w-full items-center justify-center rounded-md text-xl dark:text-navy-900">
+            <div className="flex h-full w-full items-center justify-center rounded-md text-xl">
               <MdModeEditOutline />
             </div>
           </button>
