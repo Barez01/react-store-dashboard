@@ -40,6 +40,7 @@ const Dashboard = () => {
   const {
     loading,
     error,
+    overview
   } = useAppSelector((state) => state.home);
 
   useEffect(() => {
@@ -54,19 +55,19 @@ const Dashboard = () => {
         <Widget
           icon={<MdCategory className="h-7 w-7" />}
           title={"Categories"}
-          subtitle={"20 groups"}
+          subtitle={`${overview.totalCategories} groups`}
           path="categories"
         />
         <Widget
           icon={<MdApps className="h-6 w-6" />}
           title={"Products"}
-          subtitle={"180 items"}
+          subtitle={`${overview.totalProducts} items`}
           path="data-tables"
         />
         <Widget
           icon={<MdBarChart className="h-7 w-7" />}
           title={"Total Sales"}
-          subtitle={"$10"}
+          subtitle={`$${overview.totalSales}`}
           path="nft-marketplace"
         />
         <div className="relative col-span-1 flex h-[92px] w-full flex-grow items-center justify-around gap-2 rounded-[20px] border-[1px] border-gray-200 bg-white bg-clip-border px-2 py-2 shadow-md shadow-[#F3F3F3] dark:border-[#ffffff33] dark:!bg-navy-800 dark:text-white dark:shadow-none md:col-span-2 md:flex-grow-0 md:gap-1 lg:col-span-3 xl:gap-2 3xl:col-span-3">
