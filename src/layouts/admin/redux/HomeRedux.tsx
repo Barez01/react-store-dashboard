@@ -4,149 +4,66 @@ import Cookies from "js-cookie";
 
 /* ================= TYPES ================= */
 
-interface Task {
-  id: number;
-  title: string;
-  description: string;
-  date: string;
+interface MonthlyProfit {
+  month: string;
+  profit: number;
 }
 
-interface TaskState {
-  tasks: Task[];
-  readLoading: boolean;
-  writeLoading: boolean;
-  updateLoading: number | null;
-  deleteLoading: number | null;
+interface DailyProfit {
+  date: string;
+  total: number;
+}
+
+interface TopCategories {
+  category: string;
+  total: number;
+}
+
+interface Overview {
+  totalSales: number;
+  totalProducts: number;
+  totalCategories: number;
+  todaySales: number;
+  monthlyProfit: MonthlyProfit[];
+  dailyProfit: DailyProfit[];
+  topCategories: TopCategories[];
+}
+
+interface HomeState {
+  overview: Overview | null;
+  loading: boolean;
   error: string | null;
 }
 
 /* ================= INITIAL STATE ================= */
 
-const initialState: TaskState = {
-  tasks: [],
-  readLoading: false,
-  writeLoading: false,
-  updateLoading: null,
-  deleteLoading: null,
+const initialState: HomeState = {
+  overview: null,
+  loading: false,
   error: null,
 };
 
 /* ================= ASYNC ACTION ================= */
 
-export const writeTask = createAsyncThunk<
-  number,
-  Task,
-  { rejectValue: string }
->("task/writeTask", async (taskData, thunkAPI) => {
-  try {
-    if (!taskData.description) {
-      return thunkAPI.rejectWithValue("No description is specified!");
-    }
-
-    const accessToken = Cookies.get("access_token");
-
-    const response = await axios.post(
-      "http://localhost:5000/tasks",
-      {
-        title: "-",
-        description: taskData.description,
-      },
-      {
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${accessToken}`,
-        },
-      },
-    );
-
-    return response.status;
-  } catch (error: any) {
-    return thunkAPI.rejectWithValue(
-      error.response?.data?.message || "Task could not be saved",
-    );
-  }
-});
-
-export const readTasks = createAsyncThunk<
-  Task[],
+export const getOverview = createAsyncThunk<
+  Overview,
   void,
   { rejectValue: string }
->("task/readTasks", async (_, thunkAPI) => {
+>("home/getOverview", async (_, thunkAPI) => {
   try {
     const accessToken = Cookies.get("access_token");
 
-    const response = await axios.get("http://localhost:5000/tasks", {
+    const response = await axios.get("http://localhost:5000/overview", {
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${accessToken}`,
       },
     });
 
-    return response.data.tasks;
+    return response.data;
   } catch (error: any) {
     return thunkAPI.rejectWithValue(
-      error.response?.data?.message || "Tasks could not be returned",
-    );
-  }
-});
-
-export const updateTask = createAsyncThunk<
-  number,
-  Task,
-  { rejectValue: string }
->("task/updateTask", async (taskData, thunkAPI) => {
-  try {
-    if (!taskData.description) {
-      return thunkAPI.rejectWithValue("No description is specified!");
-    }
-
-    const accessToken = Cookies.get("access_token");
-
-    const response = await axios.put(
-      "http://localhost:5000/tasks",
-      {
-        id: taskData.id,
-        title: "-",
-        description: taskData.description,
-      },
-      {
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${accessToken}`,
-        },
-      },
-    );
-
-    return response.status;
-  } catch (error: any) {
-    return thunkAPI.rejectWithValue(
-      error.response?.data?.message || "Task could not be saved",
-    );
-  }
-});
-
-export const deleteTask = createAsyncThunk<
-  number,
-  Task,
-  { rejectValue: string }
->("task/deleteTask", async (taskData, thunkAPI) => {
-  try {
-    const accessToken = Cookies.get("access_token");
-
-    const response = await axios.delete("http://localhost:5000/tasks", {
-      data: {
-        id: taskData.id,
-      },
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${accessToken}`,
-      },
-    });
-
-    return response.status;
-  } catch (error: any) {
-    return thunkAPI.rejectWithValue(
-      error.response?.data?.message || "Task could not be deleted",
+      error.response?.data?.message || "Overview could not be returned",
     );
   }
 });
@@ -154,7 +71,7 @@ export const deleteTask = createAsyncThunk<
 /* ================= SLICE ================= */
 
 const homeSlice = createSlice({
-  name: "task",
+  name: "home",
   initialState,
   reducers: {
     setError: (state, action) => {
@@ -166,51 +83,16 @@ const homeSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      .addCase(writeTask.pending, (state) => {
-        state.writeLoading = true;
+      .addCase(getOverview.pending, (state) => {
+        state.loading = true;
         state.error = null;
       })
-      .addCase(writeTask.fulfilled, (state) => {
-        state.writeLoading = false;
+      .addCase(getOverview.fulfilled, (state, action) => {
+        state.loading = false;
+        state.overview = action.payload;
       })
-      .addCase(writeTask.rejected, (state, action) => {
-        state.writeLoading = false;
-        state.error = action.payload ?? "Something went wrong";
-      })
-      .addCase(readTasks.pending, (state) => {
-        state.readLoading = true;
-        state.error = null;
-      })
-      .addCase(readTasks.fulfilled, (state, action) => {
-        state.readLoading = false;
-        state.tasks = action.payload.sort(
-          (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime(),
-        );
-      })
-      .addCase(readTasks.rejected, (state, action) => {
-        state.readLoading = false;
-        state.error = action.payload ?? "Something went wrong";
-      })
-      .addCase(updateTask.pending, (state, action) => {
-        state.updateLoading = action.meta.arg.id;
-        state.error = null;
-      })
-      .addCase(updateTask.fulfilled, (state) => {
-        state.updateLoading = null;
-      })
-      .addCase(updateTask.rejected, (state, action) => {
-        state.updateLoading = null;
-        state.error = action.payload ?? "Something went wrong";
-      })
-      .addCase(deleteTask.pending, (state, action) => {
-        state.deleteLoading = action.meta.arg.id;
-        state.error = null;
-      })
-      .addCase(deleteTask.fulfilled, (state) => {
-        state.deleteLoading = null;
-      })
-      .addCase(deleteTask.rejected, (state, action) => {
-        state.deleteLoading = null;
+      .addCase(getOverview.rejected, (state, action) => {
+        state.loading = false;
         state.error = action.payload ?? "Something went wrong";
       });
   },
