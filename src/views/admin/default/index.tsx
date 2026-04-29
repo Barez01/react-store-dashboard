@@ -29,9 +29,23 @@ import Dropdown from "components/dropdown";
 import { BsArrowBarUp } from "react-icons/bs";
 import { FiSearch, FiAlignJustify } from "react-icons/fi";
 import { RiSunFill, RiMoonFill } from "react-icons/ri";
+import { useAppDispatch, useAppSelector } from "../../../Redux/Hooks";
+import { useEffect } from "react";
+import { getOverview } from "layouts/admin/redux/HomeRedux";
 
 const Dashboard = () => {
   const [darkmode, setDarkmode] = React.useState(false);
+
+  const dispatch = useAppDispatch();
+  const {
+    loading,
+    error,
+  } = useAppSelector((state) => state.home);
+
+  useEffect(() => {
+    dispatch(getOverview());
+  }, [dispatch]);
+
   return (
     <div>
       {/* Card widget */}
@@ -250,7 +264,7 @@ const Dashboard = () => {
 
       {/* Charts */}
 
-      <div className="mt-5 grid grid-cols-1 gap-5 xl:grid-cols-2">
+      {loading ? <div>Loading</div> : <div className="mt-5 grid grid-cols-1 gap-5 xl:grid-cols-2">
         <div className="h-full">
           <TotalSpent />
         </div>
@@ -259,7 +273,7 @@ const Dashboard = () => {
           <DailyTraffic />
           <PieChartCard />
         </div>
-      </div>
+      </div>}
     </div>
   );
 };

@@ -51,7 +51,7 @@ export const getOverview = createAsyncThunk<
   { rejectValue: string }
 >("home/getOverview", async (_, thunkAPI) => {
   try {
-    const accessToken = Cookies.get("access_token");
+    const accessToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImM4YzJjZjU1LTA0OWUtNDVjZS05NjE3LWVjNzdjZTZjMzkzOCIsImlhdCI6MTc3NzE1NTM3OCwiZXhwIjoxNzc3NzYwMTc4fQ.526Wi5brZXardRqjOsNNOOnU46JjdJtU1BqipluHsWk";//Cookies.get("access_token");
 
     const response = await axios.get("http://localhost:5000/overview", {
       headers: {
