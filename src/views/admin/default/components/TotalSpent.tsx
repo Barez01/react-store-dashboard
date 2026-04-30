@@ -5,18 +5,26 @@ import {
 } from "react-icons/md";
 import Card from "components/card";
 import {
-  lineChartDataTotalSpent,
+  // lineChartDataTotalSpent,
   lineChartOptionsTotalSpent,
 } from "variables/charts";
 import LineChart from "components/charts/LineChart";
 
-const TotalSpent = () => {
+type ChartSeries = {
+  name: string;
+  data: number[];
+  color?: string;
+};
+
+const TotalSpent = ({ data }: { data: any }) => {
   return (
     <Card extra="!p-[20px] text-center h-full">
       <div className="flex justify-between">
         <button className="linear mt-1 flex items-center justify-center gap-2 rounded-lg bg-lightPrimary p-2 text-gray-600 transition duration-200 hover:cursor-pointer hover:bg-gray-100 active:bg-gray-200 dark:bg-navy-700 dark:hover:opacity-90 dark:active:opacity-80">
           <MdOutlineCalendarToday />
-          <span className="text-sm font-medium text-gray-600">Monthly Profit</span>
+          <span className="text-sm font-medium text-gray-600">
+            Monthly Profit
+          </span>
         </button>
         <div className="mt-2 flex items-start">
           <div className="flex items-center text-sm text-green-500">
@@ -45,7 +53,7 @@ const TotalSpent = () => {
         <div className="h-full w-full">
           <LineChart
             chartOptions={lineChartOptionsTotalSpent}
-            chartData={lineChartDataTotalSpent}
+            chartData={data}
           />
         </div>
       </div>
