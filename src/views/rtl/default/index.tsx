@@ -55,10 +55,7 @@ const Dashboard = () => {
       {/* Charts */}
 
       <div className="mt-5 grid grid-cols-1 gap-5 md:grid-cols-2">
-        <TotalSpent
-          data={[50, 64, 48, 66, 49, 68]} 
-          categories={[""]}
-        />
+        <TotalSpent data={[50, 64, 48, 66, 49, 68]} categories={[""]} />
         <WeeklyRevenue />
       </div>
 
@@ -74,7 +71,7 @@ const Dashboard = () => {
 
         <div className="grid grid-cols-1 gap-5 rounded-[20px] md:grid-cols-2">
           <DailyTraffic />
-          <PieChartCard />
+          <PieChartCard data={[0]} categories={[""]} />
         </div>
 
         {/* Complex Table , Task & Calendar */}

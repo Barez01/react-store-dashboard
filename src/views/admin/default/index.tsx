@@ -107,7 +107,10 @@ const Dashboard = () => {
             data={overview.dailyProfit.map((item) => item.total)}
             categories={overview.dailyProfit.map((item) => item.date)}
           />
-          <PieChartCard />
+          <PieChartCard 
+          data={overview.topCategories.map((item) => item.total)}
+          categories={overview.topCategories.map((item) => item.category)}
+          />
         </div>
       </div>
       <General />

@@ -2,7 +2,13 @@ import PieChart from "components/charts/PieChart";
 import { pieChartData, pieChartOptions } from "variables/charts";
 import Card from "components/card";
 
-const PieChartCard = () => {
+const PieChartCard = ({
+  data,
+  categories,
+}: {
+  data: number[];
+  categories: string[];
+}) => {
   return (
     <Card extra="p-3">
       <div className="mb-6 flex flex-row justify-between px-3 pt-2">
@@ -22,9 +28,19 @@ const PieChartCard = () => {
       </div>
 
       <div className="mb-auto flex h-[220px] w-full items-center justify-center">
-        <PieChart chartOptions={pieChartOptions} chartData={pieChartData} />
+        <PieChart
+          chartOptions={
+            categories.length > 1
+              ? pieChartOptions
+              : {
+                  ...pieChartOptions,
+                  labels: categories,
+                }
+          }
+          chartData={data.length > 1 ? data : pieChartData}
+        />
       </div>
-      <div className="flex flex-row !justify-between rounded-2xl px-6 py-3 mt-6 shadow-2xl shadow-shadow-500 dark:!bg-navy-700 dark:shadow-none">
+      <div className="mt-6 flex flex-row !justify-between rounded-2xl px-6 py-3 shadow-2xl shadow-shadow-500 dark:!bg-navy-700 dark:shadow-none">
         <div className="flex flex-col items-center justify-center">
           <div className="flex items-center justify-center">
             <div className="h-2 w-2 rounded-full bg-brand-500" />
