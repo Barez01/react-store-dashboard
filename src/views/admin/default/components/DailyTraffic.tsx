@@ -32,30 +32,38 @@ const DailyTraffic = ({
         </div>
       </div>
 
-      <div className="h-[300px] w-full pb-0 pt-10">
-        {/* <BarChart
-          // chartData={barChartDataDailyTraffic}
-          // chartOptions={barChartOptionsDailyTraffic}
-          chartOptions={
-                        categories.length < 7
-                          ? barChartOptionsDailyTraffic
-                          : {
-                              ...barChartOptionsDailyTraffic,
-                              xaxis: {
-                                ...barChartOptionsDailyTraffic.xaxis,
-                                categories: categories,
-                              },
-                            }
-                      }
-                      chartData={
-                        data.length < 7
-                          ? barChartDataDailyTraffic
-                          : barChartDataDailyTraffic.map((item) => ({
-                              ...item,
-                              data: data,
-                            }))
-                      }
-        /> */}
+      <div
+        className={`h-[300px] w-full pb-0 pt-10 ${
+          data.length < 7 && "flex items-center justify-center"
+        }`}
+      >
+        {data.length < 7 ? (
+          <p className="text-gray-600">Unlocks after one week</p>
+        ) : (
+          <BarChart
+            // chartData={barChartDataDailyTraffic}
+            // chartOptions={barChartOptionsDailyTraffic}
+            chartOptions={
+              categories.length < 7
+                ? barChartOptionsDailyTraffic
+                : {
+                    ...barChartOptionsDailyTraffic,
+                    xaxis: {
+                      ...barChartOptionsDailyTraffic.xaxis,
+                      categories: categories,
+                    },
+                  }
+            }
+            chartData={
+              data.length < 7
+                ? barChartDataDailyTraffic
+                : barChartDataDailyTraffic.map((item) => ({
+                    ...item,
+                    data: data,
+                  }))
+            }
+          />
+        )}
       </div>
     </Card>
   );
