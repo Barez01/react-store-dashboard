@@ -32,29 +32,29 @@ const DailyTraffic = ({
         </div>
       </div>
 
-      <div className="h-[300px] w-full pb-0 pt-10">
+      <div className="h-[300px] w-full pt-10 pb-0">
         <BarChart
           // chartData={barChartDataDailyTraffic}
           // chartOptions={barChartOptionsDailyTraffic}
           chartOptions={
-            categories.length < 1
-              ? barChartOptionsDailyTraffic
-              : {
-                  ...barChartOptionsDailyTraffic,
-                  xaxis: {
-                    ...barChartOptionsDailyTraffic.xaxis,
-                    categories: categories,
-                  },
-                }
-          }
-          chartData={
-            data.length < 1
-              ? barChartDataDailyTraffic
-              : barChartDataDailyTraffic.map((item) => ({
-                  ...item,
-                  data: data,
-                }))
-          }
+                        categories.length < 7
+                          ? barChartOptionsDailyTraffic
+                          : {
+                              ...barChartOptionsDailyTraffic,
+                              xaxis: {
+                                ...barChartOptionsDailyTraffic.xaxis,
+                                categories: categories,
+                              },
+                            }
+                      }
+                      chartData={
+                        data.length < 7
+                          ? barChartDataDailyTraffic
+                          : barChartDataDailyTraffic.map((item) => ({
+                              ...item,
+                              data: data,
+                            }))
+                      }
         />
       </div>
     </Card>
