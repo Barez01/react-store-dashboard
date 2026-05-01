@@ -103,7 +103,10 @@ const Dashboard = () => {
         </div>
 
         <div className="grid grid-cols-1 gap-5 rounded-[20px] md:grid-cols-2">
-          <DailyTraffic />
+          <DailyTraffic
+            data={overview.dailyProfit.map((item) => item.total)}
+            categories={overview.dailyProfit.map((item) => item.date)}
+          />
           <PieChartCard />
         </div>
       </div>

@@ -3,7 +3,13 @@ import { barChartDataDailyTraffic } from "variables/charts";
 import { barChartOptionsDailyTraffic } from "variables/charts";
 import { MdArrowDropUp } from "react-icons/md";
 import Card from "components/card";
-const DailyTraffic = () => {
+const DailyTraffic = ({
+  data,
+  categories,
+}: {
+  data: number[];
+  categories: string[];
+}) => {
   return (
     <Card extra="pb-7 p-[20px]">
       <div className="flex flex-row justify-between">
@@ -26,10 +32,29 @@ const DailyTraffic = () => {
         </div>
       </div>
 
-      <div className="h-[300px] w-full pt-10 pb-0">
+      <div className="h-[300px] w-full pb-0 pt-10">
         <BarChart
-          chartData={barChartDataDailyTraffic}
-          chartOptions={barChartOptionsDailyTraffic}
+          // chartData={barChartDataDailyTraffic}
+          // chartOptions={barChartOptionsDailyTraffic}
+          chartOptions={
+            categories.length < 1
+              ? barChartOptionsDailyTraffic
+              : {
+                  ...barChartOptionsDailyTraffic,
+                  xaxis: {
+                    ...barChartOptionsDailyTraffic.xaxis,
+                    categories: categories,
+                  },
+                }
+          }
+          chartData={
+            data.length < 1
+              ? barChartDataDailyTraffic
+              : barChartDataDailyTraffic.map((item) => ({
+                  ...item,
+                  data: data,
+                }))
+          }
         />
       </div>
     </Card>
