@@ -56,13 +56,7 @@ const Dashboard = () => {
 
       <div className="mt-5 grid grid-cols-1 gap-5 md:grid-cols-2">
         <TotalSpent
-          data={[
-            {
-              name: "Profit",
-              data: [50, 64, 48, 66, 49, 68],
-              color: "#4318FF",
-            },
-          ]} 
+          data={[50, 64, 48, 66, 49, 68]} 
           categories={[""]}
         />
         <WeeklyRevenue />

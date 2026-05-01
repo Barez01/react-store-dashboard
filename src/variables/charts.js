@@ -264,7 +264,7 @@ export const lineChartDataTotalSpent = [
   // },
   {
     name: "Profit",
-    data: [50, 64, 48, 66, 49, 68],
+    data: [0, 0, 0, 0, 0, 0],
     color: "#4318FF",
   },
 ];
@@ -323,7 +323,7 @@ export const lineChartOptionsTotalSpent = {
     },
     type: "text",
     range: undefined,
-    categories: ["SEP", "OCT", "NOV", "DEC", "JAN", "FEB"],
+    categories: ["-", "-", "-", "-", "-", "-"],
   },
 
   yaxis: {

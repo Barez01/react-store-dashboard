@@ -5,7 +5,7 @@ import {
 } from "react-icons/md";
 import Card from "components/card";
 import {
-  // lineChartDataTotalSpent,
+  lineChartDataTotalSpent,
   lineChartOptionsTotalSpent,
 } from "variables/charts";
 import LineChart from "components/charts/LineChart";
@@ -14,7 +14,7 @@ const TotalSpent = ({
   data,
   categories,
 }: {
-  data: any;
+  data: number[];
   categories: string[];
 }) => {
   return (
@@ -52,14 +52,25 @@ const TotalSpent = ({
         </div> */}
         <div className="h-full w-full">
           <LineChart
-            chartOptions={{
-              ...lineChartOptionsTotalSpent,
-              xaxis: {
-                ...lineChartOptionsTotalSpent.xaxis,
-                categories: categories,
-              },
-            }}
-            chartData={data}
+            chartOptions={
+              categories.length < 6
+                ? lineChartOptionsTotalSpent
+                : {
+                    ...lineChartOptionsTotalSpent,
+                    xaxis: {
+                      ...lineChartOptionsTotalSpent.xaxis,
+                      categories: categories,
+                    },
+                  }
+            }
+            chartData={
+              data.length < 6
+                ? lineChartDataTotalSpent
+                : lineChartDataTotalSpent.map((item) => ({
+                    ...item,
+                    data: data,
+                  }))
+            }
           />
         </div>
       </div>

@@ -97,13 +97,7 @@ const Dashboard = () => {
       <div className="mb-5 mt-5 grid grid-cols-1 gap-5 xl:grid-cols-2">
         <div className="h-full">
           <TotalSpent
-            data={[
-              {
-                name: "Profit",
-                data: overview.monthlyProfit.map((item) => item.profit),
-                color: "#4318FF",
-              },
-            ]}
+            data={overview.monthlyProfit.map((item) => item.profit)}
             categories={overview.monthlyProfit.map((item) => item.month)}
           />
         </div>
