@@ -32,8 +32,8 @@ const DailyTraffic = ({
         </div>
       </div>
 
-      <div className="h-[300px] w-full pt-10 pb-0">
-        <BarChart
+      <div className="h-[300px] w-full pb-0 pt-10">
+        {/* <BarChart
           // chartData={barChartDataDailyTraffic}
           // chartOptions={barChartOptionsDailyTraffic}
           chartOptions={
@@ -55,7 +55,7 @@ const DailyTraffic = ({
                               data: data,
                             }))
                       }
-        />
+        /> */}
       </div>
     </Card>
   );

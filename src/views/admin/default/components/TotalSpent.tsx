@@ -50,28 +50,36 @@ const TotalSpent = ({
             </div>
           </div>
         </div> */}
-        <div className="h-full w-full">
-          <LineChart
-            chartOptions={
-              categories.length < 6
-                ? lineChartOptionsTotalSpent
-                : {
-                    ...lineChartOptionsTotalSpent,
-                    xaxis: {
-                      ...lineChartOptionsTotalSpent.xaxis,
-                      categories: categories,
-                    },
-                  }
-            }
-            chartData={
-              data.length < 6
-                ? lineChartDataTotalSpent
-                : lineChartDataTotalSpent.map((item) => ({
-                    ...item,
-                    data: data,
-                  }))
-            }
-          />
+        <div
+          className={`h-full w-full ${
+            data.length < 6 && "flex items-center justify-center"
+          }`}
+        >
+          {data.length < 6 ? (
+            <p className="text-gray-600">Unlocks after 6 months</p>
+          ) : (
+            <LineChart
+              chartOptions={
+                categories.length < 6
+                  ? lineChartOptionsTotalSpent
+                  : {
+                      ...lineChartOptionsTotalSpent,
+                      xaxis: {
+                        ...lineChartOptionsTotalSpent.xaxis,
+                        categories: categories,
+                      },
+                    }
+              }
+              chartData={
+                data.length < 6
+                  ? lineChartDataTotalSpent
+                  : lineChartDataTotalSpent.map((item) => ({
+                      ...item,
+                      data: data,
+                    }))
+              }
+            />
+          )}
         </div>
       </div>
     </Card>
