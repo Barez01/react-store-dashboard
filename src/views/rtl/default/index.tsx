@@ -62,7 +62,8 @@ const Dashboard = () => {
               data: [50, 64, 48, 66, 49, 68],
               color: "#4318FF",
             },
-          ]}
+          ]} 
+          categories={[""]}
         />
         <WeeklyRevenue />
       </div>

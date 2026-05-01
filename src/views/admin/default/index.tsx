@@ -100,10 +100,11 @@ const Dashboard = () => {
             data={[
               {
                 name: "Profit",
-                data: [overview.monthlyProfit[0].profit],
+                data: overview.monthlyProfit.map((item) => item.profit),
                 color: "#4318FF",
               },
             ]}
+            categories={overview.monthlyProfit.map((item) => item.month)}
           />
         </div>
 

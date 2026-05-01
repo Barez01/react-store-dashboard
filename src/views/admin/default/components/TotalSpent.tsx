@@ -10,13 +10,13 @@ import {
 } from "variables/charts";
 import LineChart from "components/charts/LineChart";
 
-type ChartSeries = {
-  name: string;
-  data: number[];
-  color?: string;
-};
-
-const TotalSpent = ({ data }: { data: any }) => {
+const TotalSpent = ({
+  data,
+  categories,
+}: {
+  data: any;
+  categories: string[];
+}) => {
   return (
     <Card extra="!p-[20px] text-center h-full">
       <div className="flex justify-between">
@@ -52,7 +52,13 @@ const TotalSpent = ({ data }: { data: any }) => {
         </div> */}
         <div className="h-full w-full">
           <LineChart
-            chartOptions={lineChartOptionsTotalSpent}
+            chartOptions={{
+              ...lineChartOptionsTotalSpent,
+              xaxis: {
+                ...lineChartOptionsTotalSpent.xaxis,
+                categories: categories,
+              },
+            }}
             chartData={data}
           />
         </div>
