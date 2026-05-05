@@ -50,11 +50,11 @@ const TotalSpent = ({
           </div>
         </div> */}
         <div
-          className={`h-full w-full bg-red-50 ${data.length < 6 && "flex items-center justify-center"
+          className={`h-full w-full ${data.length < 6 && "flex items-center justify-center"
             }`}
         >
           {data.length < 6 ? (
-            <p className="text-gray-600">kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkUnlocks after 6 monthskk</p>
+            <p className="text-gray-600">Unlocks after 6 months</p>
           ) : (
             <LineChart
               chartOptions={

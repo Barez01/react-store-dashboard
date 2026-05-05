@@ -10,8 +10,8 @@ const PieChartCard = ({
   categories: string[];
 }) => {
   return (
-    <Card extra="p-3">
-      <div className="mb-6 flex flex-row justify-between px-3 pt-2">
+    <Card extra="!p-[20px]">
+      <div className="flex flex-row justify-between px-3 pt-2">
         <div>
           <h4 className="text-lg font-bold text-navy-700 dark:text-white">
             Categories Ranking
@@ -29,7 +29,7 @@ const PieChartCard = ({
 
       <div className="flex h-full w-full items-center justify-center">
         {categories.length < 2 ? (
-          <p className="text-gray-600">kkUnlocks after two categorieskkkkkkkkkkkkkkkkkkkkkkkkkkkk</p>
+          <p className="text-gray-600">Unlocks after two categories</p>
         ) : (
           <PieChart
             chartOptions={{

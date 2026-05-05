@@ -30,11 +30,11 @@ const DailyTraffic = ({
       </div>
 
       <div
-        className={`h-[300px] w-full bg-red-50 ${data.length < 7 && "flex items-center justify-center"
+        className={`h-[300px] w-full ${data.length < 7 && "flex items-center justify-center"
           }`}
       >
         {data.length < 7 ? (
-          <p className="text-gray-600">kkUnlocks after one weekkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk</p>
+          <p className="text-gray-600">Unlocks after one week</p>
         ) : (
           <BarChart
             // chartData={barChartDataDailyTraffic}
