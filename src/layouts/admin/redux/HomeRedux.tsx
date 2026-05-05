@@ -19,7 +19,7 @@ interface TopCategories {
   total: number;
 }
 
-interface LowStockProducts {
+export interface LowStockProducts {
   id: number;
   name: string;
   price: string;

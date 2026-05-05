@@ -1,15 +1,16 @@
 import Card from "components/card";
-const General = ({}) => {
-  // if (true) return (<Card extra={"w-full h-[calc(100vh-550px)] !p-[20px]"}>
-  //   <div className="mb-8 px-2 mt-2 w-full h-full">
-  //       <h4 className="text-xl font-bold text-navy-700 dark:text-white">
-  //         Low Stock Products
-  //       </h4>
-  //       <div className="h-full flex-row content-center">
-  //         <p className="text-center text-gray-600">Unlocks after one category</p>
-  //       </div>
-  //     </div>
-  // </Card>);
+import { LowStockProducts } from "layouts/admin/redux/HomeRedux";
+const General = ({ lowStockProducts }: { lowStockProducts: LowStockProducts[] }) => {
+  if (lowStockProducts.length == 0) return (<Card extra={"w-full h-[calc(100vh-550px)] !p-[20px]"}>
+    <div className="mb-8 px-2 mt-2 w-full h-full">
+      <h4 className="text-xl font-bold text-navy-700 dark:text-white">
+        Low Stock Products
+      </h4>
+      <div className="h-full flex-row content-center">
+        <p className="text-center text-gray-600">Unlocks after one product</p>
+      </div>
+    </div>
+  </Card>);
   return (
     <Card extra={"w-full h-full !p-[20px]"}>
       {/* Header */}
@@ -29,6 +30,14 @@ const General = ({}) => {
       </div>
       {/* Cards */}
       <div className="grid grid-cols-4 gap-4 px-2">
+        {lowStockProducts.map((product) => (
+          <div className="flex flex-col items-start justify-center rounded-2xl bg-white bg-clip-border px-3 py-4 shadow-3xl shadow-shadow-500 dark:!bg-navy-700 dark:shadow-none">
+            <p className="text-sm text-gray-600">{product.name}</p>
+            <p className="text-base font-medium text-navy-700 dark:text-white">
+              {product.stock}
+            </p>
+          </div>
+        ))}
         <div className="flex flex-col items-start justify-center rounded-2xl bg-white bg-clip-border px-3 py-4 shadow-3xl shadow-shadow-500 dark:!bg-navy-700 dark:shadow-none">
           <p className="text-sm text-gray-600">Education</p>
           <p className="text-base font-medium text-navy-700 dark:text-white">

@@ -92,7 +92,7 @@ const Dashboard = () => {
           />
         </div>
       </div>
-      <General />
+      <General lowStockProducts={overview.lowStockProducts}/>
     </div>
   );
 };
