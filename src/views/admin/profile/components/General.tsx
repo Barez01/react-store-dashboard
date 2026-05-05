@@ -1,7 +1,17 @@
 import Card from "components/card";
-const General = () => {
+const General = ({}) => {
+  // if (true) return (<Card extra={"w-full h-[calc(100vh-550px)] !p-[20px]"}>
+  //   <div className="mb-8 px-2 mt-2 w-full h-full">
+  //       <h4 className="text-xl font-bold text-navy-700 dark:text-white">
+  //         Low Stock Products
+  //       </h4>
+  //       <div className="h-full flex-row content-center">
+  //         <p className="text-center text-gray-600">Unlocks after one category</p>
+  //       </div>
+  //     </div>
+  // </Card>);
   return (
-    <Card extra={"w-full h-full p-3"}>
+    <Card extra={"w-full h-full !p-[20px]"}>
       {/* Header */}
       <div className="mb-8 mt-2 w-full">
         <h4 className="px-2 text-xl font-bold text-navy-700 dark:text-white">

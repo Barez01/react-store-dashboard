@@ -1,38 +1,17 @@
-import MiniCalendar from "components/calendar/MiniCalendar";
-import WeeklyRevenue from "views/admin/default/components/WeeklyRevenue";
-import TotalSpent from "views/admin/default/components/TotalSpent";
-import PieChartCard from "views/admin/default/components/PieChartCard";
-import {
-  IoMdHome,
-  IoMdInformationCircleOutline,
-  IoMdNotificationsOutline,
-} from "react-icons/io";
-import { IoDocuments } from "react-icons/io5";
+import Widget from "components/widget/Widget";
+import { getOverview } from "layouts/admin/redux/HomeRedux";
+import { useEffect } from "react";
 import {
   MdApps,
   MdBarChart,
-  MdCategory,
-  MdDashboard,
-  MdGroup,
-  MdGroups,
+  MdCategory
 } from "react-icons/md";
-import React from "react";
-import Widget from "components/widget/Widget";
-import CheckTable from "views/admin/default/components/CheckTable";
-import ComplexTable from "views/admin/default/components/ComplexTable";
 import DailyTraffic from "views/admin/default/components/DailyTraffic";
-import TaskCard from "views/admin/default/components/TaskCard";
-import tableDataCheck from "./variables/tableDataCheck";
-import tableDataComplex from "./variables/tableDataComplex";
-import Dropdown from "components/dropdown";
-import { BsArrowBarUp } from "react-icons/bs";
-import { FiSearch, FiAlignJustify } from "react-icons/fi";
-import { RiSunFill, RiMoonFill } from "react-icons/ri";
+import PieChartCard from "views/admin/default/components/PieChartCard";
+import TotalSpent from "views/admin/default/components/TotalSpent";
 import { useAppDispatch, useAppSelector } from "../../../Redux/Hooks";
-import { useEffect } from "react";
-import { getOverview } from "layouts/admin/redux/HomeRedux";
-import ProfileNavBar from "./components/ProfileNavBar";
 import General from "../profile/components/General";
+import ProfileNavBar from "./components/ProfileNavBar";
 
 const Dashboard = () => {
   const dispatch = useAppDispatch();
@@ -107,9 +86,9 @@ const Dashboard = () => {
             data={overview.dailyProfit.map((item) => item.total)}
             categories={overview.dailyProfit.map((item) => item.date)}
           />
-          <PieChartCard 
-          data={overview.topCategories.map((item) => item.total)}
-          categories={overview.topCategories.map((item) => item.category)}
+          <PieChartCard
+            data={overview.topCategories.map((item) => item.total)}
+            categories={overview.topCategories.map((item) => item.category)}
           />
         </div>
       </div>

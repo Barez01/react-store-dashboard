@@ -15,7 +15,7 @@ const DailyTraffic = ({
         <button className="linear flex items-center justify-center gap-2 rounded-lg bg-lightPrimary p-2 text-gray-600 transition duration-200 hover:cursor-pointer hover:bg-gray-100 active:bg-gray-200 dark:bg-navy-700 dark:hover:opacity-90 dark:active:opacity-80">
           <MdOutlineCalendarToday />
           <span className="text-sm font-medium text-gray-600">
-            Monthly Profit
+            Daily Profit
           </span>
         </button>
         <div className="mt-2 flex items-start">

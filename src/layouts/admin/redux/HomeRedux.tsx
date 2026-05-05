@@ -19,6 +19,17 @@ interface TopCategories {
   total: number;
 }
 
+interface LowStockProducts {
+  id: number;
+  name: string;
+  price: string;
+  cost_price: string;
+  stock: string;
+  unit_type: string;
+  min_stock_alert: string;
+  category_id: string;
+}
+
 interface Overview {
   totalSales: number;
   totalProducts: number;
@@ -27,6 +38,7 @@ interface Overview {
   monthlyProfit: MonthlyProfit[];
   dailyProfit: DailyProfit[];
   topCategories: TopCategories[];
+  lowStockProducts: LowStockProducts[];
 }
 
 interface HomeState {
