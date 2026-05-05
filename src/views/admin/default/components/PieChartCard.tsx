@@ -1,6 +1,6 @@
-import PieChart from "components/charts/PieChart";
-import { pieChartData, pieChartOptions } from "variables/charts";
 import Card from "components/card";
+import PieChart from "components/charts/PieChart";
+import { pieChartOptions } from "variables/charts";
 
 const PieChartCard = ({
   data,
@@ -27,9 +27,9 @@ const PieChartCard = ({
         </div> */}
       </div>
 
-      <div className="mb-auto flex h-full w-full items-center justify-center">
+      <div className="flex h-full w-full items-center justify-center">
         {categories.length < 2 ? (
-          <p className="text-gray-600">Unlocks after two categories</p>
+          <p className="text-gray-600">kkUnlocks after two categorieskkkkkkkkkkkkkkkkkkkkkkkkkkkk</p>
         ) : (
           <PieChart
             chartOptions={{

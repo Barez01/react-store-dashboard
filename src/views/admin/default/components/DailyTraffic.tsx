@@ -1,8 +1,7 @@
-import BarChart from "components/charts/BarChart";
-import { barChartDataDailyTraffic } from "variables/charts";
-import { barChartOptionsDailyTraffic } from "variables/charts";
-import { MdArrowDropUp } from "react-icons/md";
 import Card from "components/card";
+import BarChart from "components/charts/BarChart";
+import { MdArrowDropUp, MdOutlineCalendarToday } from "react-icons/md";
+import { barChartDataDailyTraffic, barChartOptionsDailyTraffic } from "variables/charts";
 const DailyTraffic = ({
   data,
   categories,
@@ -11,34 +10,31 @@ const DailyTraffic = ({
   categories: string[];
 }) => {
   return (
-    <Card extra="pb-7 p-[20px]">
-      <div className="flex flex-row justify-between">
-        <div className="ml-1 pt-2">
-          <p className="text-sm font-medium leading-4 text-gray-600">
-            Daily Profit
-          </p>
-          {/* <p className="text-[34px] font-bold text-navy-700 dark:text-white">
-            2.579{" "}
-            <span className="text-sm font-medium leading-6 text-gray-600">
-              Visitors
-            </span>
-          </p> */}
-        </div>
+    <Card extra="!p-[20px]">
+      <div className="flex justify-between">
+        <button className="linear flex items-center justify-center gap-2 rounded-lg bg-lightPrimary p-2 text-gray-600 transition duration-200 hover:cursor-pointer hover:bg-gray-100 active:bg-gray-200 dark:bg-navy-700 dark:hover:opacity-90 dark:active:opacity-80">
+          <MdOutlineCalendarToday />
+          <span className="text-sm font-medium text-gray-600">
+            Monthly Profit
+          </span>
+        </button>
         <div className="mt-2 flex items-start">
           <div className="flex items-center text-sm text-green-500">
             <MdArrowDropUp className="h-5 w-5" />
-            <p className="font-bold"> +2.45% </p>
+            <p className="font-bold"> +3.56% </p>
           </div>
         </div>
+        {/* <button className="!linear z-[1] flex items-center justify-center rounded-lg bg-lightPrimary p-2 text-brand-500 !transition !duration-200 hover:bg-gray-100 active:bg-gray-200 dark:bg-navy-700 dark:text-white dark:hover:bg-white/20 dark:active:bg-white/10">
+                <MdBarChart className="h-6 w-6" />
+              </button> */}
       </div>
 
       <div
-        className={`h-[300px] w-full pb-0 pt-10 ${
-          data.length < 7 && "flex items-center justify-center"
-        }`}
+        className={`h-[300px] w-full bg-red-50 ${data.length < 7 && "flex items-center justify-center"
+          }`}
       >
         {data.length < 7 ? (
-          <p className="text-gray-600">Unlocks after one week</p>
+          <p className="text-gray-600">kkUnlocks after one weekkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk</p>
         ) : (
           <BarChart
             // chartData={barChartDataDailyTraffic}
@@ -47,20 +43,20 @@ const DailyTraffic = ({
               categories.length < 7
                 ? barChartOptionsDailyTraffic
                 : {
-                    ...barChartOptionsDailyTraffic,
-                    xaxis: {
-                      ...barChartOptionsDailyTraffic.xaxis,
-                      categories: categories,
-                    },
-                  }
+                  ...barChartOptionsDailyTraffic,
+                  xaxis: {
+                    ...barChartOptionsDailyTraffic.xaxis,
+                    categories: categories,
+                  },
+                }
             }
             chartData={
               data.length < 7
                 ? barChartDataDailyTraffic
                 : barChartDataDailyTraffic.map((item) => ({
-                    ...item,
-                    data: data,
-                  }))
+                  ...item,
+                  data: data,
+                }))
             }
           />
         )}

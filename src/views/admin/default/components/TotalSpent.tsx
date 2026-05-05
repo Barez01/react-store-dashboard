@@ -1,14 +1,13 @@
+import Card from "components/card";
+import LineChart from "components/charts/LineChart";
 import {
   MdArrowDropUp,
-  MdOutlineCalendarToday,
-  MdBarChart,
+  MdOutlineCalendarToday
 } from "react-icons/md";
-import Card from "components/card";
 import {
   lineChartDataTotalSpent,
   lineChartOptionsTotalSpent,
 } from "variables/charts";
-import LineChart from "components/charts/LineChart";
 
 const TotalSpent = ({
   data,
@@ -20,7 +19,7 @@ const TotalSpent = ({
   return (
     <Card extra="!p-[20px] text-center h-full">
       <div className="flex justify-between">
-        <button className="linear mt-1 flex items-center justify-center gap-2 rounded-lg bg-lightPrimary p-2 text-gray-600 transition duration-200 hover:cursor-pointer hover:bg-gray-100 active:bg-gray-200 dark:bg-navy-700 dark:hover:opacity-90 dark:active:opacity-80">
+        <button className="linear flex items-center justify-center gap-2 rounded-lg bg-lightPrimary p-2 text-gray-600 transition duration-200 hover:cursor-pointer hover:bg-gray-100 active:bg-gray-200 dark:bg-navy-700 dark:hover:opacity-90 dark:active:opacity-80">
           <MdOutlineCalendarToday />
           <span className="text-sm font-medium text-gray-600">
             Monthly Profit
@@ -51,32 +50,31 @@ const TotalSpent = ({
           </div>
         </div> */}
         <div
-          className={`h-full w-full ${
-            data.length < 6 && "flex items-center justify-center"
-          }`}
+          className={`h-full w-full bg-red-50 ${data.length < 6 && "flex items-center justify-center"
+            }`}
         >
           {data.length < 6 ? (
-            <p className="text-gray-600">Unlocks after 6 months</p>
+            <p className="text-gray-600">kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkUnlocks after 6 monthskk</p>
           ) : (
             <LineChart
               chartOptions={
                 categories.length < 6
                   ? lineChartOptionsTotalSpent
                   : {
-                      ...lineChartOptionsTotalSpent,
-                      xaxis: {
-                        ...lineChartOptionsTotalSpent.xaxis,
-                        categories: categories,
-                      },
-                    }
+                    ...lineChartOptionsTotalSpent,
+                    xaxis: {
+                      ...lineChartOptionsTotalSpent.xaxis,
+                      categories: categories,
+                    },
+                  }
               }
               chartData={
                 data.length < 6
                   ? lineChartDataTotalSpent
                   : lineChartDataTotalSpent.map((item) => ({
-                      ...item,
-                      data: data,
-                    }))
+                    ...item,
+                    data: data,
+                  }))
               }
             />
           )}
